@@ -1,5 +1,6 @@
 ---
-title: Hexo + Github 搭建个人博客
+layout: post
+title: Hexo + Github 搭建博客
 date: 2017-09-11 19:05:22
 tags:
 - 博客搭建
@@ -66,15 +67,16 @@ $ hexo d
 $ hexo post "文章名称，建议英文"
 ```
 然后根据提示，使用markdown语法编辑该文章。
-- 修改完毕后，使用 `$ hexo d` 发布到github上即可。
-- 如果需要本地预览，运行 `$ hexo s`，然后在 http://localhost:4000 即可看到博客主站
+- 修改完毕后，使用 `$ hexo g -d`发布到github上即可。
+- 如果需要本地预览，运行 `$ hexo s`，然后在 http://localhost:4000 即可看到博客主站。编辑本地markdown文件后，重新刷新下页面即可看到效果。
 
 ## 保存本地项目到Github
 
 1、在github上建立一个仓库
-2、本地运行 `npm init`
+2、本地运行 `npm init`，配置项目信息
+3、进行第一次代码提交，并按照提示设置项目远程仓库地址等信息
 
-## 了解[HEXO](https://hexo.io)
+## 了解 [HEXO](https://hexo.io)
 
 - 在[官网了解_config.yml](https://hexo.io/zh-cn/docs/configuration.html)文件
 

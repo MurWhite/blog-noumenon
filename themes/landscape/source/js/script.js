@@ -134,4 +134,8 @@
 
     $container.removeClass('mobile-nav-on');
   });
+
+  $('#tool-top').on('click', function () {
+    $(window).scrollTop(0)
+  })
 })(jQuery);

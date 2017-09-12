@@ -7,12 +7,12 @@ title: 墨 - 白
 subtitle:
 description:
 author: Boer
-language: zh-Hans
+language: zh-CN
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://murwhite.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
