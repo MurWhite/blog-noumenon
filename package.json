@@ -1,7 +1,6 @@
 {
   "name": "blog-noumenon",
   "version": "0.0.1",
-  "private": true,
   "hexo": {
     "version": "3.3.9"
   },
@@ -21,7 +20,6 @@
   "main": "no",
   "devDependencies": {},
   "scripts": {
-    "test": "no"
   },
   "repository": {
     "type": "git",
