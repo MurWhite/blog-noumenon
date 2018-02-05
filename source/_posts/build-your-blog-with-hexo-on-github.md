@@ -15,7 +15,7 @@ tags:
 此段落出现的变量：
 - path/you/wanna/place/project : 项目所在文件夹的路径
 - your-project-name : 本地项目的名称
-- github-user-name : 个人在Github的用户名
+- github-user-name : 在Github的用户名
 - your-github-project-remote-url.git : clone Github上项目的仓库地址
 
 注意：
@@ -32,8 +32,8 @@ $ npm install -g hexo-cli
 
 ```bash
 $ cd path/you/wanna/place/project 
-$ hexo init your-project-name
-$ cd your-project-name
+$ hexo init {your-project-name}
+$ cd {your-project-name}
 $ npm install
 ```
 
@@ -79,5 +79,3 @@ $ hexo post "文章名称，建议英文"
 ## 了解 [HEXO](https://hexo.io)
 
 - 在[官网了解_config.yml](https://hexo.io/zh-cn/docs/configuration.html)文件
-
-### 2、
