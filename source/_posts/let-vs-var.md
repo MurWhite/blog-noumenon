@@ -16,8 +16,8 @@ var a = 1;
 console.log(a); // 1
 
 // 由于var存在变量提升，相当于以下写法
-(declare a) && (a = undefined); // 声明并初始化为 undefined
-console.log(a); // undefined
+(declare a) && (a = undefined); // 声明变量 a 并初始化为 undefined
+console.log(a); // undefinedg
 a = 1; // 赋值 a 为 1
 console.log(a); // 1
 ```
