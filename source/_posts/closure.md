@@ -17,6 +17,19 @@ tags:
 > Running this code has exactly the same effect as the previous example of the init() function above; what's different — and interesting — is that the displayName() inner function is returned from the outer function **before being executed**.
 
 重点在于：函数在**执行前**被返回。
+下面看一段函数：
+
+```js
+function sayHello(name) {
+  return function() {
+    console.log("hello" + name);
+  };
+}
+let greet = sayHello("John");
+greet();
+```
+
+这是经典的闭包例子。上面代码中在执行前被返回匿名函数 `function anonymous(){console.log("hello" + name)}` 与其所在的词法环境(fucntion sayHello)组合成为一个闭包。
 
 ### 附
 
