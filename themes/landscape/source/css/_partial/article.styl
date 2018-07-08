@@ -2,7 +2,6 @@
   margin: block-margin 0
 
 .article-inner
-  @extend $block
   overflow: hidden
 
 .article-meta
@@ -35,7 +34,7 @@
   color: color-default
   line-height: line-height-title
   transition: color 0.2s
-  a&:hover
+  a &:hover
     color: color-link
 
 .article-entry
@@ -107,10 +106,10 @@
     margin-top: 0.5em
     position: relative
     text-align: center
-  // http://webdesignerwall.com/tutorials/css-elastic-videos
+// http://webdesignerwall.com/tutorials/css-elastic-videos
   .video-container
     position: relative
-    padding-top: (9 / 16 * 100)% // 16:9 ratio
+    padding-top: (9 / 16 * 100) % // 16:9 ratio
     height: 0
     overflow: hidden
     iframe, object, embed
@@ -302,14 +301,6 @@ $article-share-link
     background: color-google
     text-shadow: 0 1px darken(color-google, 20%)
 
-.article-share-linkedin
-  @extend $article-share-link
-  &:before
-    content: "\f0e1"
-  &:hover
-    background: color-linkedin
-    text-shadow: 0 1px darken(color-linkedin, 20%)
-
 .article-gallery
   background: #000
   position: relative
@@ -330,6 +321,7 @@ $article-share-link
     display: block
     max-width: 100%
     margin: 0 auto
+
 /*
 $article-gallery-ctrl
   position: absolute
@@ -363,3 +355,62 @@ $article-gallery-ctrl
   &:before
     content: "\f054"
     right: 15px*/
+
+/*boer-custom*/
+.article.archive
+  padding 10px 0 0
+  box-shadow 1px 2px 10px rgba(0, 0, 0, 0.2)
+  position relative
+
+.article-inner
+  + .show-more
+    position absolute
+    bottom 0
+    display none
+    width 100%
+    text-align center
+    color color-grey
+    background linear-gradient(to bottom, transparent, #FFFFFF)
+    > .icon-down
+      float none
+      display inline-block
+      color #333
+      width 100%
+      padding 100px 0 15px
+      &.unfold
+        display: none
+      &:before
+        content: '\f063'
+        color #333
+        margin-right 10px
+        transition transform 300ms ease
+        display inline-block
+      &:after
+        content: '展开'
+  &.flexible
+    height 600px
+    transition height 300ms linear
+    .article-fold-btn
+      cursor: pointer;
+      float: right;
+      margin-left: 20px;
+      &:before
+        content: '\f062'
+        font-family: FontAwesome;
+        padding-right: 6px;
+    &.unfold
+      overflow visible
+      & > footer.sticky
+        background color-background
+        position sticky
+        bottom 0
+        left 0
+        margin 0
+        padding 1.6em 10px
+    + .show-more
+      display block
+
+.article-meta.border-left > .article-date
+  border-left 5px solid color-grey
+  padding-left 10px
+  margin-left 0
