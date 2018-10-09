@@ -2,7 +2,7 @@
   "name": "blog-noumenon",
   "version": "0.0.1",
   "hexo": {
-    "version": "3.3.9"
+    "version": "3.7.1"
   },
   "dependencies": {
     "hexo": "^3.2.0",
@@ -19,8 +19,7 @@
   "description": "real-repo of https://murwhite.github.io/",
   "main": "no",
   "devDependencies": {},
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MurWhite/blog-noumenon.git"
