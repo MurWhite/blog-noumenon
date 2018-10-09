@@ -1,8 +1,8 @@
 ---
 title: 闭包 closure
 date: 2018-06-28 23:53:20
-tags: 
-- js
+tags:
+  - js
 ---
 
 闭包在网上有各种各样的解释，就像是哈姆雷特一样。
@@ -30,6 +30,79 @@ greet();
 ```
 
 这是经典的闭包例子。上面代码中在执行前被返回匿名函数 `function anonymous(){console.log("hello" + name)}` 与其所在的词法环境(fucntion sayHello)组合成为一个闭包。
+
+同时，也经常看到一个没有利用闭包造成的反例：
+
+```js
+// 预期结果是1秒后输出 0,1,2,3...9
+for (var i = 0; i < 10; i++) {
+  setTimeout(function() {
+    console.log(i);
+  }, 1000);
+}
+// 然而，实际是最后输出了 10 个 10
+```
+
+分析时需要知道的是，for + var 并没有自己的作用域 scope，上面的 for 循环相当于以下写法：
+
+```js
+// 循环开始前准备（注意，var是没有块级作用域的）
+var i = 0;
+
+// 循环体
+if(i < 10){
+  setTimeout(/*function-console*/, 1000)
+}
+// 循环体的后操作
+i++;
+
+// 下一个循环体及后操作
+if(i < 10){
+  setTimeout(/*function-console*/, 1000)
+}
+i++;
+
+//再重复几次循环体及后操作
+```
+
+而每次 setTimeout 的时候，第一个入参为一个函数，由于 if 内没有自己的 scope，此函数使用了全局变量 i。声明的时候，function-console 并没有和它所在的环境形成闭包。同时，由于 JS 单线程的机制，function-console 是在 1000ms 后才被推入事件队列中，而此时，全局变量的 i 早已经变为了 10。
+
+如果改为一下使用 let 的写法：
+
+```js
+for (let i = 0; i < 10; i++) {
+  setTimeout(function() {
+    console.log(i);
+  }, 1000);
+}
+// 就能得到预期的输出
+```
+
+这是因为 let 在 for 中形成了一个块级作用域，相当于以下写法。
+
+```js
+{
+  // 循环开始前准备
+  let i = 0;
+
+  // 循环体
+  if(i < 10){
+    let temp_i = i;
+    setTimeout(/*function-console, use temp_i*/, 1000)
+  }
+  // 循环体的后操作
+  i++;
+
+  // 下一个循环体及后操作
+  if(i < 10){
+    let temp_i = i;
+    setTimeout(/*function-console, use temp_i*/, 1000)
+  }
+  i++;
+
+  //再重复几次循环体及后操作
+}
+```
 
 ### 附
 
